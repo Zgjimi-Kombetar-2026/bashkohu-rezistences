@@ -13,6 +13,8 @@
   --discord-hover: #4752c4;
   --whatsapp: #25d366;
   --instagram: #e1306c;
+  --message: #f2b705;
+  --message-hover: #d9a400;
 }
 
 * {
@@ -102,6 +104,7 @@ body {
 }
 
 .emblem {
+  position: relative;
   width: 150px;
   height: 150px;
   display: inline-block;
@@ -112,6 +115,39 @@ body {
   height: 100%;
   object-fit: contain;
   display: block;
+}
+
+.emblem-badge {
+  position: absolute;
+  top: -66px;
+  right: -140px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--message);
+  color: #17130a;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 1;
+  white-space: nowrap;
+  padding: 17px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.5);
+  transform: rotate(6deg);
+  transition:
+    transform 0.2s ease,
+    background-color 0.15s ease;
+}
+
+.emblem-badge:hover {
+  background: var(--message-hover);
+  transform: rotate(0deg) scale(1.05);
+}
+
+.emblem-badge svg {
+  flex-shrink: 0;
 }
 
 .title {
@@ -619,12 +655,19 @@ body {
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
   .hero {
-    padding: 54px 20px 42px;
+    padding: 100px 20px 42px;
   }
 
   .emblem {
     width: 104px;
     height: 104px;
+  }
+
+  .emblem-badge {
+    top: -70px;
+    right: -76px;
+    font-size: 18px;
+    padding: 12px 18px;
   }
 
   .title {
